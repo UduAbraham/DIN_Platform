@@ -1,16 +1,42 @@
-
-
+// import React from 'react';
 import { Box, Text, VStack, Icon, HStack } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
-import { FaShieldAlt, FaBolt, FaServer, FaNetworkWired } from 'react-icons/fa';
+import { FaShieldAlt, FaBolt, FaServer, FaNetworkWired, } from 'react-icons/fa';
+import { keyframes } from '@emotion/react'; // Correct import
 
-const MotionHStack = motion(HStack);
+// Define the keyframes for the scrolling animation
+const scrollAnimation = keyframes`
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Adjust to half the total width */
+`;
+
+const features = [
+  {
+    icon: FaShieldAlt,
+    title: 'Secure Infrastructure',
+    description: 'Top-tier security protocols to protect your data and ensure reliable access.',
+  },
+  {
+    icon: FaBolt,
+    title: 'High Performance',
+    description: 'Blazing fast response times to optimize your blockchain interactions.',
+  },
+  {
+    icon: FaServer,
+    title: 'Scalable Services',
+    description: 'Effortlessly scale your operations with our robust infrastructure.',
+  },
+  {
+    icon: FaNetworkWired,
+    title: 'Seamless Connectivity',
+    description: 'Access multiple blockchain networks with ease, all in one place.',
+  },
+];
 
 export const FeaturesSection = () => (
   <Box
     py="80px"
     id="Benefits"
-    backgroundImage="url(src/assets/Annotation 2024-11-28 042847.png)"
+    backgroundImage="url(/src/assets/Annotation 2024-11-28 042847.png)" // Adjust if needed
     backgroundSize="cover"
     backgroundPosition="center"
     overflow="hidden"
@@ -22,23 +48,20 @@ export const FeaturesSection = () => (
         bgClip="text"
         bgGradient="linear(to-r, teal.400, blue.500)"
       >
-         Benefits We  Offer
+        Benefits We Offer
       </Text>
       <Text color="gray.600" maxW="600px">
-        Discover the advantages of using our platform—built to empower developers with reliable, scalable, and secure solutions.
+        Discover the advantages of using our platform—built to empower developers with reliable,
+        scalable, and secure solutions.
       </Text>
     </VStack>
-    <Box overflow="hidden" whiteSpace="nowrap" w="full">
-      <MotionHStack
+    <Box overflow="hidden" whiteSpace="nowrap" w="full" position="relative">
+      <HStack
         spacing={8}
-        animate={{ x: ["0%", "-100%"] }}
-        transition={{
-          repeat: Infinity,
-          duration: 50,
-          ease: "linear",
-        }}
-        
+        animation={`${scrollAnimation} 25s linear infinite`} // Adjust duration for smoothness
+        display="inline-flex"
       >
+        {/* Repeat features array to ensure smooth scrolling */}
         {[...features, ...features].map((feature, idx) => (
           <Feature
             key={idx}
@@ -47,17 +70,10 @@ export const FeaturesSection = () => (
             description={feature.description}
           />
         ))}
-      </MotionHStack>
+      </HStack>
     </Box>
   </Box>
 );
-
-const features = [
-  { icon: FaShieldAlt, title: 'Secure Infrastructure', description: 'Top-tier security protocols to protect your data and ensure reliable access.' },
-  { icon: FaBolt, title: 'High Performance', description: 'Blazing fast response times to optimize your blockchain interactions.' },
-  { icon: FaServer, title: 'Scalable Services', description: 'Effortlessly scale your operations with our robust infrastructure.' },
-  { icon: FaNetworkWired, title: 'Seamless Connectivity', description: 'Access multiple blockchain networks with ease, all in one place.' },
-];
 
 const Feature = ({
   icon,

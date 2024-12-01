@@ -13,7 +13,7 @@ function App() {
       <Box>
         <Navbar />
         <HeroSection />
-        <FeaturesSection />
+        <FeaturesSection/>
         <Benefit/>
         <PartnersSection />
         <Footer />

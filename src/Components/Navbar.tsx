@@ -23,7 +23,7 @@ export const Navbar = () => {
           <Link href="#Features" _hover={{ textDecoration: 'none' }}>Features</Link>
           <Link href="#Benefits" _hover={{ textDecoration: 'none' }}>Benefits</Link>
           <Link href="#Partners" _hover={{ textDecoration: 'none' }}>Partners</Link>
-          <Link colorScheme="teal" href="#" _hover={{ textDecoration: 'none' }}>Get Started</Link>
+          {/* <Link colorScheme="teal" href="#" _hover={{ textDecoration: 'none' }}>Get Started</Link> */}
         </Flex>
         <IconButton
           icon={<HamburgerIcon />}
@@ -40,7 +40,7 @@ export const Navbar = () => {
           <Link href="#Features" _hover={{ textDecoration: 'none' }}>Features</Link>
           <Link href="#Benefits" _hover={{ textDecoration: 'none' }}>Benefits</Link>
           <Link href="#Partners" _hover={{ textDecoration: 'none' }}>Partners</Link>
-          <Link colorScheme="teal" href="#" _hover={{ textDecoration: 'none' }}>Get Started</Link>
+          {/* <Link colorScheme="teal" href="#" _hover={{ textDecoration: 'none' }}>Get Started</Link> */}
         </VStack>
       )}
     </Box>
